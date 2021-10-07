@@ -8,14 +8,26 @@ print("1")
 
 import matplotlib.pyplot as plt
 import numpy as np
+import random
 
-ypoints = np.array([0, 1, 1, 0])
+# ypoints = np.array([0, 1, 1, 0])
+#
+# plt.plot(ypoints, linestyle = 'dotted', color = 'r')
 
-plt.plot(ypoints, linestyle = 'dotted', color = 'r')
+### kek
+xpoints = np.array([0,1,2,3,4,5,6])
+ypoints = np.array([0,random.random(),random.random(),random.random(),random.random(),random.random(),0])
+plt.plot(xpoints,ypoints,color='b')
+
+### piros
+xpoints = np.array([0,1,2,3,4,5,6])
+ypoints = np.array([0,random.random(),random.random(),random.random(),random.random(),random.random(),0])
+plt.plot(xpoints,ypoints,color='r')
+
+### piros
+xpoints = np.array([0,1,2,3,4,5,6])
+ypoints = np.array([0,random.random(),random.random(),random.random(),random.random(),random.random(),0])
+plt.plot(xpoints,ypoints,color='green')
 
 
-xpoints = np.array([1, 2, 6, 8])
-ypoints = np.array([3, 8, 1, 10])
-
-plt.plot(xpoints, ypoints)
 plt.show()
