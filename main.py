@@ -30,4 +30,6 @@ ypoints = np.array([0,random.random(),random.random(),random.random(),random.ran
 plt.plot(xpoints,ypoints,color='green')
 
 
+
+
 plt.show()

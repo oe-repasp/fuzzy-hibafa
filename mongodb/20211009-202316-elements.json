@@ -1,0 +1,34 @@
+{
+	"_id": {
+		"$oid": "6161cd5f334c0330fa7c983a"
+	},
+	"attributions": {
+		"level": 1,
+		"text": "Door not closed",
+		"value": 0.5,
+		"element_id": 1
+	},
+	"points": [
+		"[0,0]",
+		"[1,0]",
+		"[2,0.4]",
+		"[3,1]"
+	]
+}
+{
+	"_id": {
+		"$oid": "6161cdbe334c0330fa7c9843"
+	},
+	"attributions": {
+		"level": 1,
+		"text": "Power outage on door lock",
+		"value": 0.25,
+		"element_id": 2
+	},
+	"points": [
+		"[0,0]",
+		"[1,0.1]",
+		"[2,0.4]",
+		"[3,1]"
+	]
+}
