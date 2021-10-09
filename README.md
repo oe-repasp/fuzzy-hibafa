@@ -1,5 +1,6 @@
 # fuzzy-hibafa
-Fuzzy  hibafa
+Fuzzy  Fault Tree Analyzer
+
 Developed with PyCharm 20 Community edition
 Operating System : Windows 10
 
