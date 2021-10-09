@@ -19,6 +19,8 @@ After installing, these additional Python modules should be installed:
 - matplotlib
 
 To install the modules, please open a command prompt and install with "pip install <module_name>", for example:
+
+
 pip install pymongo
 
 This will install the pymongo library for python and all necessary depencies.
