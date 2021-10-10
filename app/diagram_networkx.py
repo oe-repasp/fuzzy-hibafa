@@ -1,8 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from db import conn
+from app.db import conn
 
-
+from networkx.drawing.nx_agraph import graphviz_layout
 
 
 ### init new graph
@@ -67,9 +67,9 @@ for i in array_relations:
     for m in member_list:
         G.add_edge(m,relation_id,lenght=50)
 
-pos=nx.spring_layout(G,scale=10)
+#pos=nx.spring_layout(G,scale=10)
+pos = graphviz_layout(G, prog='dot')
 #print(list(G.nodes))
 print(list(G.edges))
 #print(labeldict)
 nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
-plt.show()
