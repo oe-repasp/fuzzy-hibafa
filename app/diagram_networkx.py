@@ -12,8 +12,8 @@ G.add_node("main",color="green")
 labeldict["main"]="main"
 
 #### get event points
-pointquery=conn.cursor()
-query_nodes_elements="select id,event_id from elements"
+pointquery=conn.cursor(dictionary=True)
+query_nodes_elements="select id as id,event_id as event_id from elements"
 pointquery.execute(query_nodes_elements)
 
 array_points_events=pointquery.fetchall()
@@ -22,8 +22,8 @@ array_points=[]
 
 
 for i in array_points_events:
-    element_id="e"+str(i[0])
-    event_id=i[1]
+    element_id="e"+str(i["id"])
+    event_id=i["event_id"]
     array_points.append([element_id,event_id])
     G.add_node(element_id)
     labeldict[element_id]= element_id
@@ -31,21 +31,21 @@ for i in array_points_events:
 
 ### get relations points
 
-relationquery=conn.cursor()
-query_relations_elements="select * from relations"
+relationquery=conn.cursor(dictionary=True)
+query_relations_elements="select id as relation_id,members as relation_members,logicgate as relation_logic from relations"
 relationquery.execute(query_relations_elements)
 array_points_relations=relationquery.fetchall()
 
 array_relations=[]
 for i in array_points_relations:
-    relation_id="r"+str(i[0])
-    relation_members=i[1]
-    relation_logic=i[2]
+    relation_id="r"+str(i["relation_id"])
+    relation_members=i["relation_members"]
+    relation_logic=i["relation_logic"]
     array_relations.append([relation_id,relation_members,relation_logic])
-    if i[2]=="or":
+    if i["relation_logic"]=="or":
         G.add_node(relation_id,color="red")
         labeldict[relation_id] = relation_id+"V"
-    if i[2]=="and":
+    if i["relation_logic"]=="and":
         G.add_node(relation_id, color="yellow")
         labeldict[relation_id] = relation_id+"&"
 

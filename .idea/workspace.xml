@@ -4,7 +4,6 @@
     <list default="true" id="8400ece4-e911-491e-9f30-e0f68003e0bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/diagram_networkx.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/diagram_networkx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pict/hibafa_vizual.png" beforeDir="false" afterPath="$PROJECT_DIR$/pict/hibafa_vizual.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
