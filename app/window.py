@@ -3,7 +3,8 @@ from app.window_funcions import *
 
 root=Tk()
 root.title("Fuzzy Fault Tree Analysis")
-root.geometry("500x500")
+root.geometry("1500x500")
+
 
 
 
@@ -14,6 +15,7 @@ root.config(menu=my_menu)
 
 file_menu=Menu(my_menu)
 my_menu.add_cascade(label="Show FTA Graph",command=plot)
+my_menu.add_cascade(label="Show relations",command=show_relations)
 #my_menu.add_cascade(label="Display graph",command=display_tfa_graph)
 my_menu.add_cascade(label="Quit",command=root.quit)
 #file_menu.add_command(label="New..",command=command_new)
