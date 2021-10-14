@@ -8,6 +8,7 @@ from app.db import conn
 ### init new graph
 G = nx.DiGraph()
 labeldict={}
+## adding main event
 G.add_node("main",color="green")
 labeldict["main"]="main"
 
@@ -35,7 +36,8 @@ relationquery=conn.cursor(dictionary=True)
 query_relations_elements="select id as relation_id,members as relation_members,logicgate as relation_logic from relations"
 relationquery.execute(query_relations_elements)
 array_points_relations=relationquery.fetchall()
-
+# print("array_point_relations")
+# print(array_points_relations)
 array_relations=[]
 for i in array_points_relations:
     relation_id="r"+str(i["relation_id"])
@@ -55,23 +57,29 @@ colored_dict = nx.get_node_attributes(G, 'color')
 
 default_color = 'lightblue'
 color_seq = [colored_dict.get(node, default_color) for node in G.nodes()]
-
-
-
+#
+print("array_relations")
 print(array_relations)
+print("---")
 for i in array_relations:
     relation_id=i[0]
     members=i[1]
     logic_gate=i[2]
     member_list=members.split(",")
     for m in member_list:
+        #print(m,relation_id)
         G.add_edge(m,relation_id,lenght="100")
 
+### ez random csinalja a graph-ot, ne hasznald:
 #pos=nx.spring_layout(G,scale=100,weight="100")
-pos=nx.planar_layout(G,scale=3)
-print(list(G.nodes))
-print(list(G.edges))
+
+### ez jol rendezi el a graph-ot az ablakban
+pos=nx.planar_layout(G,scale=5)
+# print("G-nodes:")
+# print(list(G.nodes))
+# print("G:edges")
+# print(list(G.edges))
 #print(labeldict)
-#nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
-nx.draw(G,pos, labels=labeldict, with_labels = True,font_size=10,node_size=300)
+nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
+# nx.draw(G,pos, labels=labeldict, with_labels = True,font_size=10,node_size=300)
 plt.title('Fuzzy Fault Tree')
