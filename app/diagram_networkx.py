@@ -58,9 +58,9 @@ colored_dict = nx.get_node_attributes(G, 'color')
 default_color = 'lightblue'
 color_seq = [colored_dict.get(node, default_color) for node in G.nodes()]
 #
-print("array_relations")
-print(array_relations)
-print("---")
+# print("array_relations")
+# print(array_relations)
+# print("---")
 for i in array_relations:
     relation_id=i[0]
     members=i[1]
