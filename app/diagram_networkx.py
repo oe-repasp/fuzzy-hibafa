@@ -69,8 +69,9 @@ for i in array_relations:
 
 #pos=nx.spring_layout(G,scale=100,weight="100")
 pos=nx.planar_layout(G,scale=3)
-#print(list(G.nodes))
+print(list(G.nodes))
 print(list(G.edges))
 #print(labeldict)
-nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
+#nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
+nx.draw(G,pos, labels=labeldict, with_labels = True,font_size=10,node_size=300)
 plt.title('Fuzzy Fault Tree')
