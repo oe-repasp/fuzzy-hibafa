@@ -11,6 +11,7 @@ labeldict={}
 ## adding main event
 G.add_node("main",color="green")
 labeldict["main"]="main"
+G.add_edge("r1","main")
 
 #### get event points
 pointquery=conn.cursor(dictionary=True)
@@ -75,6 +76,9 @@ for i in array_relations:
 
 ### ez jol rendezi el a graph-ot az ablakban
 pos=nx.planar_layout(G,scale=5)
+
+
+
 # print("G-nodes:")
 # print(list(G.nodes))
 # print("G:edges")
