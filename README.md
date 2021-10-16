@@ -17,6 +17,12 @@ After installing, these additional Python modules should be installed:
 - mariadb
 - pynum
 - matplotlib
+- networkx
+
+External program to install:
+Graphviz
+
+
 
 To install the modules, please open a command prompt and install with "pip install <module_name>", for example:
 
