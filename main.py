@@ -1,6 +1,10 @@
+import app.dataimport
 from app.diagram_networkx import *
 from app.window import *
-import fuzzylogic
+from app.dataimport import *
+
+
+
 
 root.after(0)
 root.mainloop()
