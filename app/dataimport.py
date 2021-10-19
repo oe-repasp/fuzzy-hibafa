@@ -2,7 +2,7 @@ import configparser
 from pathlib import Path
 
 graphdata=configparser.ConfigParser()
-graphdata.read('data.ini')
+graphdata.read('app\data.ini')
 
 
 sections=graphdata.sections()
@@ -18,8 +18,6 @@ dict_events_raw={}
 for e in graphdata['events']:
     dict_events_raw[e]=(graphdata['events'][e])
 
-print(dict_events_raw)
-print("--- raw end")
 dict_events={}
 for k in dict_events_raw.keys():
     lista=str.split(dict_events_raw[k],",")
@@ -38,7 +36,30 @@ for k in dict_events_raw.keys():
 
 
 
-print(dict_events)
+### create a temp dictionary for relations data
+dict_relations_raw={}
+### create a dictionary for the final relations data
+dict_relations={}
+
+### get all relations id from ini file's relations section
+for r in graphdata['relations']:
+    dict_relations_raw[r]=(graphdata['relations'][r])
+
+### get relations from section relations
+for k in dict_relations_raw.keys():
+    list_temp_events=str.split(dict_relations_raw[k],",")
+    list_event_members=[]
+    for l in list_temp_events:
+        list_event_members.append(l)
+    list_event_members[0]=list_event_members[0][1:]
+    list_event_members[-1]=list_event_members[-1][:-1]
+
+    logicgate=list_event_members.pop()
+    dict_relations[k]={"relation_id":k}
+    dict_relations[k]['members']=list_event_members
+    dict_relations[k]['logicgate']=logicgate
 
 
 
+
+#print(dict_relations_raw)
