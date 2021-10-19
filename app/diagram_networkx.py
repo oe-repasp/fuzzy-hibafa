@@ -21,7 +21,8 @@ array_nodes=[]
 for k in dict_events.keys():
     event_id=dict_events[k]['event_title']
     G.add_node(k)
-    labeldict[k]=k
+    # labeldict[k]=k
+    labeldict[k]=dict_events[k]['event_title']
 
 #### get event points
 from app.dataimport import dict_relations
@@ -30,10 +31,10 @@ for r in dict_relations.keys():
     relation_id=dict_relations[r]['relation_id']
     if dict_relations[r]['logicgate']=="or":
         G.add_node(r,color="red")
-        labeldict[r]=r
+        labeldict[r]="OR"+r
     if dict_relations[r]['logicgate']=="and":
         G.add_node(r,color="yellow")
-        labeldict[r]=r
+        labeldict[r]="AND"+r
 
 
 
@@ -44,7 +45,8 @@ for rel in dict_relations.keys():
 ### add edge from R1 to main
 G.add_edge("r1","main")
 
-
+from app.dataimport import main_node_title
+labeldict['main']=main_node_title
 
 
 colored_dict = nx.get_node_attributes(G, 'color')

@@ -61,5 +61,6 @@ for k in dict_relations_raw.keys():
 
 
 
+main_node_title=graphdata.get("node_main","title")
 
 #print(dict_relations_raw)
