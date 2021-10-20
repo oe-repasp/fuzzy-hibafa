@@ -6,6 +6,7 @@ from app.dataimport import *
 
 def plot():
     plt.show()
+    plt.close()
 
 def show_relations():
     for r in dict_relations.keys():
@@ -29,10 +30,7 @@ def show_relations():
         print(" ")
 
 
-def ask_event_to_display():
-    print("Which event would you like to be displayed?")
-    event_to_display=input()
-    return(event_to_display)
+
 
 def draw_fuzzy_trapezoid(e_id):
     event_to_display=e_id
@@ -57,6 +55,3 @@ def draw_fuzzy_trapezoid(e_id):
     plt.ylim(-0.1, 1.1)
     plt.show()
 
-def display_fuzzy_membership_function():
-    eid=ask_event_to_display()
-    draw_fuzzy_trapezoid(eid)
