@@ -53,7 +53,7 @@ def draw_fuzzy_trapezoid(e_id):
     plt.plot(x, mfx, 'k')
     plt.ylabel('Fuzzy membership')
     plt.xlabel('Universe variable (arb)')
-    diag_title="Visualization of fuzzy membership: "+dict_events[e_id]['event_title']
+    diag_title="Visualization of fuzzy event: "+dict_events[e_id]['event_title']
     plt.title(diag_title)
     # plt.ylim(-0.1, 1.1)
     axis_x=right_border
