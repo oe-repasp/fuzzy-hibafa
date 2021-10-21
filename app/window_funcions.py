@@ -78,4 +78,26 @@ def draw_fuzzy_trapezoid(e_id):
     mplcursors.cursor(hover=True)
     plt.show()
 
+def relation_calculate_values():
+    dict_calc={}
+    for e in dict_events.keys():
+        list_e_values=[]
+        list_e_values.append(dict_events[e]['x1'])
+        list_e_values.append(dict_events[e]['x2'])
+        list_e_values.append(dict_events[e]['x3'])
+        list_e_values.append(dict_events[e]['x4'])
+        dict_calc[e]=list_e_values
+    for i in dict_relations.keys():
+        # print(dict_relations[i]['members'])
+        for m in dict_relations[i]['members']:
+            # print("member",m)
+            if m[0]=="r":
+                if m in dict_calc.keys():
+                    print("ok:",m)
+                else:
+                    print("nemok",m)
 
+
+    print("---")
+    print("full dict_calc:")
+    print(dict_calc)
