@@ -8,12 +8,13 @@ def plot():
     plt.show()
     plt.close()
 
-def show_relations():
+def show_relations(window):
     for r in dict_relations.keys():
         relation_name=r
         rel_elements=dict_relations[r]['members']
         rel_logic=dict_relations[r]['logicgate']
         to_print=[]
+        print(r)
         for i in rel_elements:
             if i[0]=="e":
                 to_print.append(dict_events[i]['event_title'])
@@ -24,10 +25,15 @@ def show_relations():
                 to_print.append(rel_logic)
         to_print.pop()
         to_show="relation "+relation_name+" is: "
-        print(to_show)
         for p in to_print:
-            print(p+" ",end="")
-        print(" ")
+            to_show=to_show + p + " "
+        to_show=to_show+(" ")
+        # print(to_show)
+        label=Label(window,text=to_show)
+        label.pack()
+
+
+
 
 
 
