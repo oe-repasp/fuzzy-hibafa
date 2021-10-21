@@ -41,17 +41,35 @@ def draw_fuzzy_trapezoid(e_id):
     import numpy as np
     import matplotlib.pyplot as plt
     import skfuzzy as fuzz
+    import mplcursors
     left_border=min(float(x1), float(x2), float(x3), float(x4))-3
     right_border=max(float(x1), float(x2), float(x3), float(x4))+3
     x = np.arange(left_border,right_border,0.01)
     mfx = fuzz.trapmf(x, [float(x1), float(x2), float(x3), float(x4)])
     plt.figure().clear()
-    plt.close()
     plt.cla()
+    plt.close()
     plt.clf()
     plt.plot(x, mfx, 'k')
     plt.ylabel('Fuzzy membership')
     plt.xlabel('Universe variable (arb)')
-    plt.ylim(-0.1, 1.1)
+    diag_title="Visualization of fuzzy membership: "+dict_events[e_id]['event_title']
+    plt.title(diag_title)
+    # plt.ylim(-0.1, 1.1)
+    axis_x=right_border
+    axis_y=1.5
+    plt.axis([left_border, axis_x, -0.5, axis_y])
+    x_number_list1 = np.array([float(x2),float(x2)])
+    y_number_list1 = np.array([0,1])
+    plt.plot(x_number_list1,y_number_list1,linestyle='dotted')
+    x_number_list2 = np.array([float(x3), float(x3)])
+    y_number_list2 = np.array([0, 1])
+    plt.plot(x_number_list2, y_number_list2, linestyle='dashed')
+    plt.scatter(x_number_list1,y_number_list1,s=30)
+    plt.scatter(x_number_list2, y_number_list2, s=30)
+    plt.scatter(float(x1),0,s=30)
+    plt.scatter(float(x4),0,s=30)
+    mplcursors.cursor(hover=True)
     plt.show()
+
 
