@@ -18,7 +18,7 @@ root.config(menu=my_menu)
 
 file_menu=Menu(my_menu)
 ### show FTA with menu button
-my_menu.add_cascade(label="Show FTA Graph",command=plot)
+my_menu.add_cascade(label="Show FFTA Graph",command=plot)
 
 ### show a submenu with relations operations
 my_menu.add_cascade(label="Relations operations",menu=submenu_relations)
