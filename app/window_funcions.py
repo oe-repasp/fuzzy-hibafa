@@ -48,9 +48,9 @@ def draw_fuzzy_trapezoid(e_id):
     import matplotlib.pyplot as plt
     import skfuzzy as fuzz
     import mplcursors
-    left_border=min(float(x1), float(x2), float(x3), float(x4))-3
-    right_border=max(float(x1), float(x2), float(x3), float(x4))+3
-    x = np.arange(left_border,right_border,0.01)
+    left_border=min(float(x1), float(x2), float(x3), float(x4))-0.005
+    right_border=max(float(x1), float(x2), float(x3), float(x4))+0.005
+    x = np.arange(left_border,right_border,0.000010)
     mfx = fuzz.trapmf(x, [float(x1), float(x2), float(x3), float(x4)])
     plt.figure().clear()
     plt.cla()
@@ -76,6 +76,8 @@ def draw_fuzzy_trapezoid(e_id):
     plt.scatter(float(x1),0,s=30)
     plt.scatter(float(x4),0,s=30)
     mplcursors.cursor(hover=True)
+    plottext="x1:"+str(x1)+"||x2:"+str(x2)+"||x3:"+str(x3)+"||x4:"+str(x4)
+    plt.annotate(plottext,xy=(float(x2),1.2),horizontalalignment="left")
     plt.show()
 
 def relation_calculate_values():
@@ -87,17 +89,21 @@ def relation_calculate_values():
         list_e_values.append(dict_events[e]['x3'])
         list_e_values.append(dict_events[e]['x4'])
         dict_calc[e]=list_e_values
-    for i in dict_relations.keys():
-        # print(dict_relations[i]['members'])
-        for m in dict_relations[i]['members']:
-            # print("member",m)
-            if m[0]=="r":
-                if m in dict_calc.keys():
-                    print("ok:",m)
-                else:
-                    print("nemok",m)
+
+    for r in dict_relations.keys():
+        # print("members:",dict_relations[r]['members'])
+        for rm in dict_relations[r]['members']:
+            if rm in dict_calc.keys():
+                print("r:",r,"rm:",rm,"-> ok")
+            else:
+                print("r:",r,"rm:",rm,"-> hiba")
+
+
+
 
 
     print("---")
     print("full dict_calc:")
     print(dict_calc)
+    print("--- dict relations:")
+    print(dict_relations.keys())
