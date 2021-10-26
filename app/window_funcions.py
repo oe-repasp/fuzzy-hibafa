@@ -4,7 +4,7 @@ from app.window import *
 from app.dataimport import *
 
 
-def plot():
+def fuzzyfta_plot():
     plt.show()
     plt.close()
 

@@ -7,9 +7,10 @@ import matplotlib.pyplot as plt
 
 ### init new graph
 G = nx.DiGraph()
+
 labeldict={}
 ## adding main event
-G.add_node("main",color="lightgreen",pos=(0,0))
+G.add_node("main",color="lightgreen",pos=[2,5,5])
 
 labeldict["main"]="main"
 #G.add_edge("r1","main")
@@ -53,8 +54,20 @@ colored_dict = nx.get_node_attributes(G, 'color')
 
 default_color = 'lightblue'
 color_seq = [colored_dict.get(node, default_color) for node in G.nodes()]
+
+pos=nx.get_node_attributes(G,'pos')
+
+
+
 pos=nx.planar_layout(G,scale=5)
+# plt.figure().canvas.manager.full_screen_toggle()
+
+plt.get_current_fig_manager().resize(width=1250,height=500)
+
 nx.draw(G,pos, labels=labeldict, with_labels = True,node_color=color_seq,font_size=10,node_size=300)
+
+
+
 
 # nx.draw(G,pos, labels=labeldict, with_labels = True,font_size=10,node_size=300)
 plt.title('Fuzzy Fault Tree')
