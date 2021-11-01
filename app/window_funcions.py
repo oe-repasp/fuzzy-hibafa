@@ -125,9 +125,9 @@ def relation_calculate_tree():
         if a[0]=="r":
             evaluate_relation(a)
 
-    # print("---BEGIN DICT EVENTS AFTER CALCULATED THE TREE---")
-    # pprint.pprint(dict_events)
-    # print("---END DICT EVENTS AFTER CALCULATED THE TREE---")
+    print("---BEGIN DICT EVENTS AFTER CALCULATED THE TREE---")
+    pprint.pprint(dict_events)
+    print("---END DICT EVENTS AFTER CALCULATED THE TREE---")
 
 
 

@@ -29,8 +29,9 @@ my_menu.add_cascade(label="Print Relations",command=partial(show_relations,root)
 ### show submenu to print events as trapezoid member functions
 my_menu.add_cascade(label="Draw grahp",menu=submenu_draw)
 for mi in dict_events.keys():
-    submenu_item=mi+" => "+dict_events[mi]['event_title']
-    submenu_draw.add_command(label=submenu_item,command=partial(draw_fuzzy_trapezoid,mi))
+        if mi[0]=="e":
+            submenu_item=mi+" => "+dict_events[mi]['event_title']
+            submenu_draw.add_command(label=submenu_item,command=partial(draw_fuzzy_trapezoid,mi))
 
 submenu_draw.add_command(label="TOP EVENT",command=draw_top_event)
 
