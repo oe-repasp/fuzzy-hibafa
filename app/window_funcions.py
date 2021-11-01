@@ -52,9 +52,13 @@ def draw_fuzzy_trapezoid(e_id):
     import matplotlib.pyplot as plt
     import skfuzzy as fuzz
     import mplcursors
-    left_border=min(float(x1), float(x2), float(x3), float(x4))-0.005
-    right_border=max(float(x1), float(x2), float(x3), float(x4))+0.005
-    x = np.arange(left_border,right_border,0.000010)
+    left_border=min(float(x1), float(x2), float(x3), float(x4))
+    right_border=max(float(x1), float(x2), float(x3), float(x4))
+    support_lenght=right_border-left_border
+    border_offset=support_lenght/10
+    left_border = left_border - border_offset
+    right_border = right_border + border_offset
+    x = np.arange(left_border,right_border,0.001*border_offset)
     mfx = fuzz.trapmf(x, [float(x1), float(x2), float(x3), float(x4)])
     plt.figure().clear()
     plt.cla()
@@ -235,9 +239,13 @@ def draw_top_event():
     import matplotlib.pyplot as plt
     import skfuzzy as fuzz
     import mplcursors
-    left_border = min(float(x1), float(x2), float(x3), float(x4)) - 0.00005
-    right_border = max(float(x1), float(x2), float(x3), float(x4)) + 0.00005
-    x = np.arange(left_border, right_border, 0.00000001)
+    left_border = min(float(x1), float(x2), float(x3), float(x4))
+    right_border = max(float(x1), float(x2), float(x3), float(x4))
+    support_lenght = right_border - left_border
+    border_offset = support_lenght / 10
+    left_border = left_border - border_offset
+    right_border = right_border + border_offset
+    x = np.arange(left_border, right_border, 0.000001*border_offset)
     mfx = fuzz.trapmf(x, [float(x1), float(x2), float(x3), float(x4)])
     plt.figure().clear()
     plt.cla()
