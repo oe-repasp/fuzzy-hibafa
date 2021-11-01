@@ -31,9 +31,10 @@ def show_relations(window):
         for p in to_print:
             to_show=to_show + p + " "
         to_show=to_show+(" ")
-        # print(to_show)
-        label=Label(window,text=to_show)
+        label = Label(window, text=to_show)
         label.pack()
+
+
 
 
 
@@ -114,19 +115,19 @@ def relation_calculate_tree():
     #     if i[0]=='r':
     #         actual_logic_gate=dict_relations[i]['logicgate']
     #         print("R:",i,"gate:",actual_logic_gate)
-    print("---BEGIN DICT EVENTS---")
-    pprint.pprint(dict_events)
-    print("---END DICT EVENTS---")
-    print("---BEGIN DICT RELATIONS---")
-    pprint.pprint(dict_relations)
-    print("---END DICT RELATIONS---")
+    # print("---BEGIN DICT EVENTS---")
+    # pprint.pprint(dict_events)
+    # print("---END DICT EVENTS---")
+    # print("---BEGIN DICT RELATIONS---")
+    # pprint.pprint(dict_relations)
+    # print("---END DICT RELATIONS---")
     for a in array_available_nodes:
         if a[0]=="r":
             evaluate_relation(a)
 
-    print("---BEGIN DICT EVENTS AFTER CALCULATED THE TREE---")
-    pprint.pprint(dict_events)
-    print("---END DICT EVENTS AFTER CALCULATED THE TREE---")
+    # print("---BEGIN DICT EVENTS AFTER CALCULATED THE TREE---")
+    # pprint.pprint(dict_events)
+    # print("---END DICT EVENTS AFTER CALCULATED THE TREE---")
 
 
 
@@ -225,7 +226,7 @@ def evaluate_relation(relnumber):
 
 
 def draw_top_event():
-    relation_calculate_tree()
+
     x1 = dict_events['r1']['x1']
     x2 = dict_events['r1']['x2']
     x3 = dict_events['r1']['x3']

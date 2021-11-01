@@ -6,7 +6,7 @@ root=Tk()
 root.title("Fuzzy Fault Tree Analysis")
 root.geometry("500x250")
 
-
+relation_calculate_tree()
 
 
 my_menu=Menu(root)
@@ -21,9 +21,10 @@ file_menu=Menu(my_menu)
 my_menu.add_cascade(label="Show FFTA Graph",command=fuzzyfta_plot)
 
 ### show a submenu with relations operations
-my_menu.add_cascade(label="Relations operations",menu=submenu_relations)
-submenu_relations.add_command(label="Print operations to main window",command=partial(show_relations,root))
-submenu_relations.add_command(label="Calculate relations",command=relation_calculate_tree)
+#my_menu.add_cascade(label="Print Relations",menu=submenu_relations)
+my_menu.add_cascade(label="Print Relations",command=partial(show_relations,root))
+#submenu_relations.add_command(label="Print operations to main window",command=partial(show_relations,root))
+#submenu_relations.add_command(label="Calculate relations",command=relation_calculate_tree)
 
 ### show submenu to print events as trapezoid member functions
 my_menu.add_cascade(label="Draw grahp",menu=submenu_draw)
