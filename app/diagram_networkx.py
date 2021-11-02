@@ -10,10 +10,12 @@ G = nx.DiGraph()
 
 labeldict={}
 ## adding main event
-G.add_node("main",color="lightgreen",pos=[2,5,5])
 
+G.add_node("main",color="lightgreen",pos=[2,5,5])
 labeldict["main"]="main"
-#G.add_edge("r1","main")
+
+### add line from r1 to main
+G.add_edge("r1","main")
 
 #### get event points
 from app.dataimport import dict_events
@@ -61,6 +63,10 @@ pos=nx.get_node_attributes(G,'pos')
 
 pos=nx.planar_layout(G,scale=5)
 # plt.figure().canvas.manager.full_screen_toggle()
+
+
+
+
 
 plt.get_current_fig_manager().resize(width=1250,height=500)
 

@@ -56,6 +56,7 @@ def draw_fuzzy_trapezoid(e_id):
     right_border=max(float(x1), float(x2), float(x3), float(x4))
     support_lenght=right_border-left_border
     border_offset=support_lenght/10
+    text_start=left_border+0.3*support_lenght
     left_border = left_border - border_offset
     right_border = right_border + border_offset
     x = np.arange(left_border,right_border,0.001*border_offset)
@@ -85,7 +86,7 @@ def draw_fuzzy_trapezoid(e_id):
     plt.scatter(float(x4),0,s=30)
     mplcursors.cursor(hover=True)
     plottext="x1:"+str(x1)+"\nx2:"+str(x2)+"\nx3:"+str(x3)+"\nx4:"+str(x4)
-    plt.annotate(plottext,xy=(float(x2),1.2),horizontalalignment="left")
+    plt.annotate(plottext,xy=(text_start,1.2),horizontalalignment="left")
     plt.show()
 
 def relation_calculate_tree():
@@ -245,6 +246,7 @@ def draw_top_event():
     border_offset = support_lenght / 10
     left_border = left_border - border_offset
     right_border = right_border + border_offset
+    text_start = left_border + 0.3 * support_lenght
     x = np.arange(left_border, right_border, 0.000001*border_offset)
     mfx = fuzz.trapmf(x, [float(x1), float(x2), float(x3), float(x4)])
     plt.figure().clear()
@@ -272,7 +274,7 @@ def draw_top_event():
     plt.scatter(float(x4), 0, s=30)
     mplcursors.cursor(hover=True)
     plottext = "x1:" + str(x1) + "\nx2:" + str(x2) + "\nx3:" + str(x3) + "\nx4:" + str(x4)
-    plt.annotate(plottext, xy=(float(x2), 1.2), horizontalalignment="left")
+    plt.annotate(plottext, xy=(text_start, 1.2), horizontalalignment="left")
     plt.show()
 
 

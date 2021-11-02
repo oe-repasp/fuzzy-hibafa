@@ -27,13 +27,16 @@ my_menu.add_cascade(label="Print Relations",command=partial(show_relations,root)
 #submenu_relations.add_command(label="Calculate relations",command=relation_calculate_tree)
 
 ### show submenu to print events as trapezoid member functions
-my_menu.add_cascade(label="Draw grahp",menu=submenu_draw)
+my_menu.add_cascade(label="Draw Trepeziod",menu=submenu_draw)
+submenu_draw.add_command(label="Draw TOP EVENT",command=draw_top_event)
+submenu_draw.add_command(label="----")
+
 for mi in dict_events.keys():
         if mi[0]=="e":
-            submenu_item=mi+" => "+dict_events[mi]['event_title']
+            submenu_item="Draw "+mi+" => "+dict_events[mi]['event_title']
             submenu_draw.add_command(label=submenu_item,command=partial(draw_fuzzy_trapezoid,mi))
 
-submenu_draw.add_command(label="TOP EVENT",command=draw_top_event)
+
 
 ### add exit button
 my_menu.add_cascade(label="Quit",command=root.quit)
