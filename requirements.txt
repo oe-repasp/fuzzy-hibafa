@@ -2,3 +2,4 @@ networkx
 matplotlib
 scikit-fuzzy
 mplcursors
+tkinter
